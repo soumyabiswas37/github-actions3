@@ -30,7 +30,7 @@ jobs:
               run: sudo docker images
 
             - name: "Running container"
-              run: sudo docker run -d --name mycont1 mycontainer:v1
+              run: sudo docker run -d --name mycont1 -p 3000:3000 mycontainer:v1
             
             - name: "Checking Container status"
               run: sudo docker ps -a
