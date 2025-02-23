@@ -15,14 +15,16 @@ jobs:
             run: sudo git clone https://github.com/soumyabiswas37/github-actions3.git
 
             name: "Building Docker image"
-            run: |
-                sudo docker build -t mycontainer:v1 .
-                sudo docker images
+            run: sudo docker build -t mycontainer:v1 .
+            
+            name: "Checking the images"
+            run: sudo docker images
 
             name: "Running container"
-            run: |
-                sudo docker run -d --name mycont1 mycontainer:v1
-                sudo docker ps -a
+            run: sudo docker run -d --name mycont1 mycontainer:v1
+            
+            name: "Checking Container status"
+            run: sudo docker ps -a
 
             name: "Checking the status"
             run: curl http://localhost:3000
