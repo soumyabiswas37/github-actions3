@@ -5,26 +5,26 @@ on:
             - master
 
 jobs:
-    building docker image:
+    building_docker_image:
         runs-on: ubuntu-latest
         steps:
-            name: "Inatlling git and docker"
-            run: sudo apt install git docker containerd -y
+            - name: "Inatlling git and docker"
+              run: sudo apt install git docker containerd -y
             
-            name: "Cloning the git repository"
-            run: sudo git clone https://github.com/soumyabiswas37/github-actions3.git
+            - name: "Cloning the git repository"
+              run: sudo git clone https://github.com/soumyabiswas37/github-actions3.git
 
-            name: "Building Docker image"
-            run: sudo docker build -t mycontainer:v1 .
+            - name: "Building Docker image"
+              run: sudo docker build -t mycontainer:v1 .
             
-            name: "Checking the images"
-            run: sudo docker images
+            - name: "Checking the images"
+              run: sudo docker images
 
-            name: "Running container"
-            run: sudo docker run -d --name mycont1 mycontainer:v1
+            - name: "Running container"
+              run: sudo docker run -d --name mycont1 mycontainer:v1
             
-            name: "Checking Container status"
-            run: sudo docker ps -a
+            - name: "Checking Container status"
+              run: sudo docker ps -a
 
-            name: "Checking the status"
-            run: curl http://localhost:3000
+            - name: "Checking the status"
+              run: curl http://localhost:3000
