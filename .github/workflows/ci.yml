@@ -19,10 +19,12 @@ jobs:
             
             
             - name: "Cloning the git repository"
-              run: sudo git clone -b master https://github.com/soumyabiswas37/github-actions3.git
+              run: |
+                sudo git clone -b master https://github.com/soumyabiswas37/github-actions3.git
+                ls -l github-actions3/
 
             - name: "Building Docker image"
-              run: sudo docker build -t . mycontainer:v1 -f github-actions3/Dockerfile
+              run: sudo docker build -t mycontainer:v1 github-actions3/
             
             - name: "Checking the images"
               run: sudo docker images
