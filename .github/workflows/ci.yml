@@ -19,7 +19,7 @@ jobs:
             
             
             - name: "Cloning the git repository"
-              run: sudo git clone https://github.com/soumyabiswas37/github-actions3.git
+              run: sudo git clone -b master https://github.com/soumyabiswas37/github-actions3.git
 
             - name: "Building Docker image"
               run: sudo docker build -t mycontainer:v1 .
