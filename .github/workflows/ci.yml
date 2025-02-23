@@ -12,7 +12,11 @@ jobs:
               run: sudo apt-get update
 
             - name: "Inatlling git and docker"
-              run: sudo apt-get install git docker.io containerd -y
+              run: |
+                sudo apt-get install git docker.io containerd -y
+                sudo systemctl start docker
+                sudo systemctl enable --now docker
+            
             
             - name: "Cloning the git repository"
               run: sudo git clone https://github.com/soumyabiswas37/github-actions3.git
