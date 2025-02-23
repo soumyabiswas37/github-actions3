@@ -22,7 +22,7 @@ jobs:
               run: sudo git clone -b master https://github.com/soumyabiswas37/github-actions3.git
 
             - name: "Building Docker image"
-              run: sudo docker build -t mycontainer:v1 .
+              run: sudo docker build -t mycontainer:v1 -f github-actions3/Dockerfile
             
             - name: "Checking the images"
               run: sudo docker images
