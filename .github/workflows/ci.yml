@@ -35,5 +35,10 @@ jobs:
             - name: "Checking Container status"
               run: sudo docker ps -a
 
+            - name: "Allowing the port 3000"
+              run: |
+                sudo ufw allow out 3000/tcp
+                sudo ufw reload
+
             - name: "Checking the status"
               run: curl http://localhost:3000
