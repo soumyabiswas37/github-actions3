@@ -8,8 +8,11 @@ jobs:
     building_docker_image:
         runs-on: ubuntu-latest
         steps:
+            - name: "Installing updates"
+              run: sudo apt-get update
+
             - name: "Inatlling git and docker"
-              run: sudo apt install git docker containerd -y
+              run: sudo apt-get install git docker.io containerd -y
             
             - name: "Cloning the git repository"
               run: sudo git clone https://github.com/soumyabiswas37/github-actions3.git
