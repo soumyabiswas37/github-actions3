@@ -1,0 +1,28 @@
+name: "Building docker image"
+on:
+    push:
+        branches:
+            - master
+
+jobs:
+    building docker image:
+        runs-on: ubuntu-latest
+        steps:
+            name: "Inatlling git and docker"
+            run: sudo apt install git docker containerd -y
+            
+            name: "Cloning the git repository"
+            run: sudo git clone https://github.com/soumyabiswas37/github-actions3.git
+
+            name: "Building Docker image"
+            run: |
+                sudo docker build -t mycontainer:v1 .
+                sudo docker images
+
+            name: "Running container"
+            run: |
+                sudo docker run -d --name mycont1 mycontainer:v1
+                sudo docker ps -a
+
+            name: "Checking the status"
+            run: curl http://localhost:3000
